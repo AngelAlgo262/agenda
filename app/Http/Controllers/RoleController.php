@@ -34,9 +34,9 @@ class RoleController extends Controller
     {
         $role = new Role();
         //$permissions = DB::table('permissions')->get();
-        $permissions = DB::table('permissions')->pluck('id','name')->toArray();
+        //$permissions = DB::table('permissions')->pluck('name')->toArray();
         //return $permissions;
-        return view('role.create', compact('role','permissions'));
+    return view('role.create',compact('role'));
         
     }
 
@@ -78,8 +78,9 @@ class RoleController extends Controller
     public function edit($id)
     {
         $role = Role::find($id);
-        $permissions = DB::table('permissions')->pluck('id','name')->toArray();
-        return view('role.edit', compact('role', 'permissions'));
+        //$permissions = DB::table('permissions')->pluck('id','name')->toArray();
+        //return $permissions;
+    return view('role.edit', compact('role', /*'permissions'*/));
     }
 
     /**
