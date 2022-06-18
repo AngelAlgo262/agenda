@@ -33,11 +33,8 @@ class RoleController extends Controller
     public function create()
     {
         $role = new Role();
-        //$permissions = DB::table('permissions')->get();
-        //$permissions = DB::table('permissions')->pluck('name')->toArray();
-        //return $permissions;
-    return view('role.create',compact('role'));
-        
+        $permisos = DB::table('permissions')->pluck('name')->toArray();
+        return view('role.create', compact('role','permisos'));
     }
 
     /**
@@ -65,8 +62,12 @@ class RoleController extends Controller
     public function show($id)
     {
         $role = Role::find($id);
-
-        return view('role.show', compact('role'));
+        $permisos = DB::table('permissions')
+                    ->select('permissions.name')
+                    //->where('id',$r)
+                    ->orderBy('name','ASC')
+                    ->get();
+        return view('role.show', compact('role','permisos'));
     }
 
     /**
@@ -78,9 +79,9 @@ class RoleController extends Controller
     public function edit($id)
     {
         $role = Role::find($id);
-        //$permissions = DB::table('permissions')->pluck('id','name')->toArray();
-        //return $permissions;
-    return view('role.edit', compact('role', /*'permissions'*/));
+        $permisos = DB::table('permissions')->pluck('name')->toArray();
+
+        return view('role.edit', compact('role','permisos'));
     }
 
     /**

@@ -28,6 +28,15 @@
                             <strong>Descripción:</strong>
                             {{ $role->guard_name }}
                         </div>
+                    
+                        <div class="form-group">
+                            <strong>Permisos:</strong>
+                            @foreach ($permisos as $permiso)
+                                
+                                {{$permiso->name}}, 
+                                
+                            @endforeach
+                        </div>
 
                     </div>
                 </div>
