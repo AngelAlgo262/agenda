@@ -33,7 +33,7 @@
                             <strong>Permisos:</strong>
                             @foreach ($permisos as $permiso)
                                 
-                                {{$permiso->name}}, 
+                                {{$permiso->name. '.'}}
                                 
                             @endforeach
                         </div>
