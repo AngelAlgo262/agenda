@@ -29,6 +29,16 @@
                             <?php echo e($role->guard_name); ?>
 
                         </div>
+                    
+                        <div class="form-group">
+                            <strong>Permisos:</strong>
+                            <?php $__currentLoopData = $permisos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $permiso): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                
+                                <?php echo e($permiso->name. '.'); ?>
+
+                                
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </div>
 
                     </div>
                 </div>

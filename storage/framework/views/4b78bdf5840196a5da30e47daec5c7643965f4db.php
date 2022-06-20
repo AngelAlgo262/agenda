@@ -15,12 +15,12 @@
 
                             </span>
 
-                             <div class="float-right">
+                             <!-- <div class="float-right">
                                 <a href="<?php echo e(route('role.create')); ?>" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   <?php echo e(__('Crear Nuevo')); ?>
 
                                 </a>
-                              </div>
+                              </div> -->
                         </div>
                     </div>
                     <?php if($message = Session::get('success')): ?>
@@ -52,10 +52,10 @@
                                             <td>
                                                 <form action="<?php echo e(route('role.destroy',$role->id)); ?>" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="<?php echo e(route('role.show',$role->id)); ?>"><i class="fa fa-fw fa-eye"></i> Ver ficha</a>
-                                                    <a class="btn btn-sm btn-warning" href="<?php echo e(route('role.edit',$role->id)); ?>"><i class="fa fa-fw fa-edit"></i> Modificar</a>
+                                                    <!-- <a class="btn btn-sm btn-warning" href="<?php echo e(route('role.edit',$role->id)); ?>"><i class="fa fa-fw fa-edit"></i> Modificar</a>
                                                     <?php echo csrf_field(); ?>
                                                     <?php echo method_field('DELETE'); ?>
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button> -->
                                                 </form>
                                             </td>
                                         </tr>

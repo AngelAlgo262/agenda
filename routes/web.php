@@ -25,7 +25,7 @@ Route::group(['middlewere' => ['auth']], function (){
 Route::resource('tiempo', \App\Http\Controllers\TiempoController::class)->middleware('auth');
 Route::resource('consultor', \App\Http\Controllers\ConsultorController::class)->middleware('auth');
 Route::resource('role',\App\Http\Controllers\RoleController::class)/*->names('admin.roles')*/;
-Route::resource('user',\App\Http\Controllers\UserController::Class);
+Route::resource('user',\App\Http\Controllers\UserController::class);
 Route::get('/evento', [App\Http\Controllers\EventoController::class, 'index']);
 Route::post('/evento/mostrar', [App\Http\Controllers\EventoController::class, 'show']);
 Route::post('/evento/agregar', [App\Http\Controllers\EventoController::class, 'store']);

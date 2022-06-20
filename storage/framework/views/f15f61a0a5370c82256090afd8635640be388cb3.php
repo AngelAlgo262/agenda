@@ -11,7 +11,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                <?php echo e(__('Listado de Usuarios alo')); ?>
+                                <?php echo e(__('Listado de Usuarios')); ?>
 
                             </span>
 

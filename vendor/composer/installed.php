@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '8dfc7498464728d32e5464aae353454eca47b28b',
+        'reference' => '68c5ea10099f58731419767c49a86e32a99a0bc5',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -385,7 +385,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '8dfc7498464728d32e5464aae353454eca47b28b',
+            'reference' => '68c5ea10099f58731419767c49a86e32a99a0bc5',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -443,7 +443,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravelcollective/html',
             'aliases' => array(),
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'laraveles/spanish' => array(
             'pretty_version' => '1.5.0',

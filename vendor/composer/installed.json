@@ -8432,7 +8432,6 @@
         "hamcrest/hamcrest-php",
         "ibex/crud-generator",
         "laravel/sail",
-        "laravelcollective/html",
         "mockery/mockery",
         "myclabs/deep-copy",
         "nunomaduro/collision",
