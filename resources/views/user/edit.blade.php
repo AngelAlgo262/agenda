@@ -11,12 +11,18 @@
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
+                <div class="card">
                     <div class="card-header">
-                        <span class="card-title">Update User</span>
+                        <div class="float-left">
+                            <span class="card-title">Editar Usuario</span>
+                        </di>
+                    </div>
+                    <div class="float-right">
+                            <a class="btn btn-primary" href="{{ route('user.index') }}"> Regresar</a>
+                    </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('users.update', $user->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('user.update', $user->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
