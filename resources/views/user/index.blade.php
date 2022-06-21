@@ -37,8 +37,7 @@
                                         <th>No</th>
 										<th>Nombre</th>
 										<th>Email</th>
-
-                                        <th></th>
+                                        <th>Rol</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,7 +47,9 @@
                                             
 											<td>{{ $user->name }}</td>
 											<td>{{ $user->email }}</td>
-
+                                            <td>
+                                                
+                                            </td>
                                             <td>
                                                 <form action="{{ route('user.destroy',$user->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('user.show',$user->id) }}"><i class="fa fa-fw fa-eye"></i> Ver ficha</a>

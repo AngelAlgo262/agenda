@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
+use illuminate\Support\Facades\Hash;
+use illuminate\Support\Facades\Arr;
+
 
 /**
  * Class UserController
@@ -32,8 +36,9 @@ class UserController extends Controller
      */
     public function create()
     {
+        $roles = Role::pluck('name', 'name')->all();
         $user = new User();
-        return view('user.create', compact('user'));
+        return view('user.create', compact('user','roles'));
     }
 
     /**
@@ -75,8 +80,10 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+        $roles = Role::pluck('name', 'name')->all;
+        $userRole = $user->roles->pluck('name','name')->all();
 
-        return view('user.edit', compact('user'));
+        return view('user.edit', compact('user','roles','userRole'));
     }
 
     /**
@@ -93,7 +100,7 @@ class UserController extends Controller
         $user->update($request->all());
 
         return redirect()->route('users.index')
-            ->with('success', 'User updated successfully');
+            ->with('success', 'Usuario acrualizado');
     }
 
     /**
@@ -106,6 +113,6 @@ class UserController extends Controller
         $user = User::find($id)->delete();
 
         return redirect()->route('users.index')
-            ->with('success', 'User deleted successfully');
+            ->with('success', 'Usuario eliminado');
     }
 }

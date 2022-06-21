@@ -37,8 +37,7 @@
                                         <th>No</th>
 										<th>Nombre</th>
 										<th>Email</th>
-
-                                        <th></th>
+                                        <th>Rol</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,7 +47,9 @@
                                             
 											<td><?php echo e($user->name); ?></td>
 											<td><?php echo e($user->email); ?></td>
-
+                                            <td>
+                                                
+                                            </td>
                                             <td>
                                                 <form action="<?php echo e(route('user.destroy',$user->id)); ?>" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="<?php echo e(route('user.show',$user->id)); ?>"><i class="fa fa-fw fa-eye"></i> Ver ficha</a>

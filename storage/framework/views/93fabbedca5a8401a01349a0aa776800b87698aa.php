@@ -27,13 +27,23 @@
     <div class="col-sm-4">
             <?php echo e(Form::label('password')); ?>
 
-            <?php echo e(Form::text('password', $user->password, ['class' => 'form-control' . ($errors->has('paswword') ? ' is-invalid' : ''), 'placeholder' => 'Pasword'])); ?>
+            <?php echo Form::password('password', array('class' => 'form-control')); ?>
 
             <?php echo $errors->first('password', '<div class="invalid-feedback">:message</div>'); ?>
 
         </div>
         </div>
 
+    <div class="row gutters-tiny">
+    <div class="col-sm-4">
+            <?php echo e(Form::label('Roles')); ?>
+
+            <?php echo Form::select('roles[]',$roles,[], array('class' => 'form-control')); ?>
+
+            <?php echo $errors->first('password', '<div class="invalid-feedback">:message</div>'); ?>
+
+        </div>
+        </div>
     
 <br/>
     <div class="box-footer mt20">

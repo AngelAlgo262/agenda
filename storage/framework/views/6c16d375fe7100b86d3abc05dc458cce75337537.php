@@ -11,7 +11,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Crear Usuarioa</span>
+                        <span class="card-title">Crear Usuario</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="<?php echo e(route('user.store')); ?>"  role="form" enctype="multipart/form-data">

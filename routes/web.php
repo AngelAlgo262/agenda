@@ -3,6 +3,8 @@
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +26,7 @@ Auth::routes();
 Route::group(['middlewere' => ['auth']], function (){
 Route::resource('tiempo', \App\Http\Controllers\TiempoController::class)->middleware('auth');
 Route::resource('consultor', \App\Http\Controllers\ConsultorController::class)->middleware('auth');
-Route::resource('role',\App\Http\Controllers\RoleController::class)/*->names('admin.roles')*/;
+Route::resource('role',\App\Http\Controllers\RoleController::class);
 Route::resource('user',\App\Http\Controllers\UserController::class);
 Route::get('/evento', [App\Http\Controllers\EventoController::class, 'index']);
 Route::post('/evento/mostrar', [App\Http\Controllers\EventoController::class, 'show']);
