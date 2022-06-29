@@ -6,8 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
-use illuminate\Support\Facades\Hash;
-use illuminate\Support\Facades\Arr;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Arr;
 
 
 /**
@@ -36,13 +36,13 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::pluck('name', 'name')->all();
+        $roles = Role::pluck('name', 'id')->ToArray();
         $user = new User();
         return view('user.create', compact('user','roles'));
     }
 
     /**
-     * Store a newly created resource in storage.
+         * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -50,10 +50,14 @@ class UserController extends Controller
     public function store(Request $request)
     {
         request()->validate(User::$rules);
-
-        $user = User::create($request->all());
+        $user = User::create
+                        ([
+                          'name'      =>$request['name'],
+                          'email'     =>$request['email'],
+                          'password'  =>bcrypt($request['password'])
+                        ]);
         return redirect()->route('user.index')
-            ->with('success', 'Usario creado.');
+            ->with('success', 'Usuario creado.');
     }
 
     /**
@@ -80,9 +84,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        $roles = Role::pluck('name', 'name')->all;
-        $userRole = $user->roles->pluck('name','name')->all();
-
+        $roles = Role::pluck('name', 'id')->ToArray();
+        $userRole = $user->roles->pluck('name','id')->all();
         return view('user.edit', compact('user','roles','userRole'));
     }
 
@@ -94,13 +97,12 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
-    {
-        request()->validate(User::$rules);
-
+    {   
+        //request()->validate(User::$rulesEdit); 
+        $user->roles()->sync($request->roles);
         $user->update($request->all());
-
-        return redirect()->route('users.index')
-            ->with('success', 'Usuario acrualizado');
+        return redirect()->route('user.index')
+            ->with('success', 'Usuario actualizado');
     }
 
     /**
@@ -112,7 +114,7 @@ class UserController extends Controller
     {
         $user = User::find($id)->delete();
 
-        return redirect()->route('users.index')
+        return redirect()->route('user.index')
             ->with('success', 'Usuario eliminado');
     }
 }

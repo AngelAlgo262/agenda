@@ -1,6 +1,5 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-
         <div class="row gutters-tiny">
             <div class="col-sm-4">
                 {{ Form::label('consultors_id') }}
@@ -71,4 +70,4 @@
             }
         });
     });
-</script>
+    s
