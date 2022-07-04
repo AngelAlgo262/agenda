@@ -50,7 +50,7 @@
                         <?php endif; ?>
                         <?php echo e(Form::label('Rol')); ?>
 
-                        <?php echo Form::select('id',$roles,'null',['class'=> 'form-control' , 'placeholder' => 'Seleccione Rol']); ?>
+                        <?php echo Form::select('$roles->role_id',$roles,'null',['class'=> 'form-control' , 'placeholder' => 'Seleccione Rol']); ?>
 
  
                     </div>

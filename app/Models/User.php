@@ -25,11 +25,6 @@ class User extends Authenticatable
         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         'password' => ['required', 'string', 'min:8'],
         ];
-    
-    static $rulesEdit = [ 
-            'name' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'string', 'min:8'],
-            ];
 
     protected $fillable = [
         'name' ,

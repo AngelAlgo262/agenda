@@ -16,19 +16,18 @@ class RoleSeeder extends Seeder
     public function run()
     {
         $role1 = Role::create(['name' =>'Administrador']);
-        $role2 = Role::create(['name' => 'consulta']);
+        $role2 = Role::create(['name' => 'Consulta']);
 
         Permission::create(['name' =>'Ver calendario'])->syncRoles([$role1, $role2]);
-        Permission::create(['name' =>'Registrar usuario'])->syncRoles([$role1]);
 
         Permission::create(['name' =>'Listado de consultores'])->syncRoles([$role1]);
         Permission::create(['name' =>'Crear consultor'])->syncRoles([$role1]);
         Permission::create(['name' =>'Detalle consultor'])->syncRoles([$role1]);
-        Permission::create(['name' =>'Actualizar consultor'])->syncRoles([$role1]);
+        Permission::create(['name' =>'Editar consultor'])->syncRoles([$role1]);
         Permission::create(['name' =>'Eliminar consultor'])->syncRoles([$role1]);
 
         Permission::create(['name' =>'Listado de tiempos'])->syncRoles([$role1]);
-        Permission::create(['name' =>'Agregar tiempo'])->syncRoles([$role1]);
+        Permission::create(['name' =>'Crear tiempo'])->syncRoles([$role1]);
         Permission::create(['name' =>'Detalle tiempo'])->syncRoles([$role1]);
         Permission::create(['name' =>'Editar tiempo'])->syncRoles([$role1]);
         Permission::create(['name' =>'Eliminar tiempo'])->syncRoles([$role1]);
@@ -38,6 +37,12 @@ class RoleSeeder extends Seeder
         Permission::create(['name' =>'Detalle de rol'])->syncRoles([$role1]);
         Permission::create(['name' =>'Editar rol'])->syncRoles([$role1]);
         Permission::create(['name' =>'Eliminar rol'])->syncRoles([$role1]);
+        
+        Permission::create(['name' =>'Listado de usuarios'])->syncRoles([$role1]);
+        Permission::create(['name' =>'Crear usuario'])->syncRoles([$role1]);
+        Permission::create(['name' =>'Detalle usuario'])->syncRoles([$role1]);
+        Permission::create(['name' =>'Actualizar usuario'])->syncRoles([$role1]);
+        Permission::create(['name' =>'Eliminar usuario'])->syncRoles([$role1]);
         
     }
 }

@@ -38,7 +38,7 @@
                         {!! Form::model($user, ['route' => ['user.update', $user], 'method' =>'put'])!!}
                         @endif
                         {{ Form::label('Rol') }}
-                        {!! Form::select('id',$roles,'null',['class'=> 'form-control' , 'placeholder' => 'Seleccione Rol']) !!}
+                        {!! Form::select('$roles->role_id',$roles,'null',['class'=> 'form-control' , 'placeholder' => 'Seleccione Rol']) !!}
  
                     </div>
                 </div>
