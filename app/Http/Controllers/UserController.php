@@ -36,7 +36,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::pluck('name', 'id')->ToArray();
+        $roles = Role::pluck('name','id')->toArray();
+        //dd($roles);
         $user = new User();
         return view('user.create', compact('user','roles'));
     }
@@ -56,8 +57,10 @@ class UserController extends Controller
                           'email'     =>$request['email'],
                           'password'  =>bcrypt($request['password'])
                         ]);
-        $user->roles()->assignRole($request->roles);
-        return $user;
+        $roles = $request->input(key:'roles', default:[]);
+        return $roles;
+        $user->assignRole($roles);
+        
         return redirect()->route('user.index')
             ->with('success', 'Usuario creado.');
     }
@@ -86,7 +89,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        $roles = Role::pluck('id', 'name')->ToArray();
+        $roles = Role::pluck('name', 'id')->ToArray();
         $userRole = $user->roles->pluck('id','name')->all();
         return view('user.edit', compact('user','roles','userRole'));
     }
@@ -102,9 +105,16 @@ class UserController extends Controller
     {   
         //request()->validate(User::$rulesEdit); 
         //$user = User::find($user)->update();
-        //$user->update($request->all());
-        $user->roles()->sync($request->roles);
-        return $user;
+        $user->update($request->only(
+            [
+                'name'      =>$request['name'],
+                'password'  =>bcrypt($request['password'])
+              ]
+        ));
+        $roles = $request->input('roles');
+        return $roles;
+        $user->syncRole($roles);
+        
         return redirect()->route('user.index')
             ->with('success', 'Usuario actualizado');
     }
