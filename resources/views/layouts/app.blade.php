@@ -45,23 +45,26 @@
                     <ul class="navbar-nav mr-auto"></ul>
                     <!--Menu-->
                     
-                        
+                        @can('Listado de consultores')
                         <li class="nav-item list-unstyled navbar-brand ">
                                     <a class="nav-link" href="{{ route('consultor.index') }}">{{ __('Consultor') }}</a>
                                 </li>
-
+                        @endcan
+                        @can('Listado de tiempos')
                         <li class="nav-item list-unstyled navbar-brand">
                                     <a class="nav-link" href="{{ route('tiempo.index') }}">{{ __('Tiempo') }}</a>
                                 </li>
-
+                        @endcan
+                        @can('Listado de roles')
                         <li class="nav-item list-unstyled navbar-brand">
                                     <a class="nav-link" href="{{ route('role.index') }}">{{ __('Roles') }}</a>
                                 </li>
-
+                        @endcan
+                        @can('Listado de usuarios')
                         <li class="nav-item list-unstyled navbar-brand">
                                     <a class="nav-link" href="{{ route('user.index') }}">{{ __('Usuarios') }}</a>
                                 </li>
-
+                        @endcan
                     @endif
                     <!--Fin Menu-->
                     <!-- Right Side Of Navbar -->

@@ -26,6 +26,6 @@ class UserSeeder extends Seeder
             'name' =>'Omar Valenzuela',
             'email' => 'ovalenzuela@w32.mx',
             'password' => bcrypt('Soporte.123')
-        ])->assignRole('Administrador');
+        ])->assignRole('Consulta');
     }
 }

@@ -37,10 +37,15 @@
                         @else
                         {!! Form::model($user, ['route' => ['user.update', $user], 'method' =>'put'])!!}
                         @endif
-                        {!! Form::label('role_id', 'Rol') !!}
-                        {!! Form::select('role_id',$roles, null, ['class' => 'form-control' . ($errors->has('rol') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione Rol']) !!}
-                        
- 
+                        {!! Form::label('id', 'Rol') !!}
+                        <select class="js-select2 form-control habilitado" name="roles" id="roles">
+                          <option>Seleccione Rol</option>
+                          @foreach ( $roles as $rol)
+                            <option value="{{$rol->name}}">
+                              {{ $rol->name }}
+                            </option>
+                          @endforeach
+                        </select>
                     </div>
                 </div>
 
