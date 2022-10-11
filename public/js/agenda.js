@@ -4,13 +4,15 @@ document.addEventListener("DOMContentLoaded", function () {
     let formulario = document.querySelector("#FormularioEventos"); //seleciona el formulario
     var calendarEl = document.getElementById("agenda");
     var calendar = new FullCalendar.Calendar(calendarEl, {
+    height: 650,
+    hiddenDays: [0],
         initialView: "dayGridMonth",
         locale: "es",
         displayEventTime:false,
         headerToolbar: {
-            left: "prev,next today",
-            center: "title",
-            right: "dayGridMonth",/*,timeGridWeek,listWeek*/            
+            left: "prev,next,today",
+            right: "title",
+            //right: "dayGridMount",/*,timeGridWeek,listWeek*/            
         },
         HIDDENDAYS: [1],
        // events: "http://localhost/agenda/public/evento/mostrar",
